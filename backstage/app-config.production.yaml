@@ -17,7 +17,12 @@ backend:
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
   csp:
+    default-src: ["'self'", 'http:', 'https:']
     connect-src: ["'self'", 'http:', 'https:']
+    script-src: ["'self'", 'http:', 'https:', "'unsafe-eval'"]
+    img-src: ["'self'", 'data:', 'http:', 'https:']
+    style-src: ["'self'", 'http:', 'https:', "'unsafe-inline'"]
+    upgrade-insecure-requests: false
   # config options: https://node-postgres.com/apis/client
   database:
     client: pg
